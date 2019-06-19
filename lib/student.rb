@@ -6,6 +6,7 @@ class Student
     new_student.id 
     new_student.name
     new_student.grade
+    new_student.length
     new_student
   end
 
