@@ -65,9 +65,9 @@ DB[:conn].execute(sql).collect do |row|
 end
 
 
-   def self.first_x_students_in_grade_10(num)
-    sql = "SELECT * FROM students WHERE grade=10 ORDER BY students.id LIMIT ?;"
-    DB[:conn].execute(sql, num)
+   def self.first_x_students_in_grade_10(x)
+    sql = "SELECT * FROM students WHERE grade = 10 LIMIT ?"
+    DB[:conn].execute(sql, x)
   end
 
   def self.first_student_in_grade_10
