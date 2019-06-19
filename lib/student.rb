@@ -22,7 +22,7 @@ class Student
     
      sql = <<-SQL
       SELECT *
-      FROM songs
+      FROM student
       WHERE name = ?
       LIMIT 1
     SQL
