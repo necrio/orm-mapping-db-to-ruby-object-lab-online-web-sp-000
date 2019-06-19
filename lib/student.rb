@@ -46,12 +46,11 @@ class Student
   
   def save
     sql = <<-SQL
-   SELECT * 
-    FROM students 
+      INSERT INTO students (name, grade) 
+      VALUES (?, ?)
     SQL
-    DB[:conn].execute(sql).collect do |row|
-      self.new_from_db(row)
-    end
+
+    DB[:conn].execute(sql, self.name, self.grade)
   end
   
   def self.create_table
