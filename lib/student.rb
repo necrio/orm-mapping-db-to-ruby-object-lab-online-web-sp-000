@@ -64,16 +64,15 @@ DB[:conn].execute(sql).collect do |row|
   end
 end
 
-  def self.first_X_students_in_grade_10
-    sql = <<-SQL
-    SELECT * 
-    FROM students
-    WHERE students.grade = 10
-    LIMIT ?
-    SQL
-    DB[:conn].execute(sql)[0].collect do |row|
-      self.new_from_db(row)
-    end.first
+
+   def self.first_x_students_in_grade_10(num)
+    sql = "SELECT * FROM students WHERE grade=10 ORDER BY students.id LIMIT ?;"
+    DB[:conn].execute(sql, num)
+  end
+
+   def self.first_student_in_grade_10
+    student = self.first_x_students_in_grade_10(1).flatten
+    self.new_from_db(student)
   end
 
   def save
