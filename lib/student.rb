@@ -71,7 +71,7 @@ end
     WHERE students.grade = 10
     LIMIT ?
     SQL
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql)[0].collect do |row|
       self.new_from_db(row)
     end.first
   end
