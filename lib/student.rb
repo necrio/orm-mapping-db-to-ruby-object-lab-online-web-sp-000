@@ -70,8 +70,7 @@ end
     DB[:conn].execute(sql, num)
   end
 
-   def self.first_student_in_grade_10
-    def self.first_student_in_grade_10
+  def self.first_student_in_grade_10
     sql = <<-SQL
     SELECT * 
     FROM students
@@ -82,7 +81,6 @@ end
       self.new_from_db(row)
     end.first
   end	  end
-  end
 
   def save
     sql = <<-SQL
