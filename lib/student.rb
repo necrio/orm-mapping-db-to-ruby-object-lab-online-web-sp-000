@@ -17,7 +17,8 @@ class Student
     
         sql = <<-SQL
       SELECT *
-      FROM students == 9
+      FROM students
+      WHERE grade == 9
     SQL
  
      DB[:conn].execute(sql).collect do |row|
