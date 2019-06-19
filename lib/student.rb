@@ -16,12 +16,10 @@ class Student
     # remember each row should be a new instance of the Student class
     
         sql = <<-SQL
-      SELECT *
-      FROM students
-      WHERE students.grade = 9
+   SELECT * 
+    FROM students 
     SQL
- 
-     DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql).collect do |row|
       self.new_from_db(row)
     end
   end
